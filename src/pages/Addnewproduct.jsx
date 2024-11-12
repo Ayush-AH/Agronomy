@@ -3,7 +3,7 @@ import React from "react";
 
 const Addnewproduct = () => {
   return (
-    <div className="container mx-auto p-6">
+    <div className="container max-h-screen overflow-y-auto bg-white mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Add New Product</h1>
       <form className="grid md:grid-cols-[2fr,1fr] gap-6">
         <div className="space-y-6 bg-[#F9F9F9]">

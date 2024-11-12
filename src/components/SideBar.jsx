@@ -57,14 +57,14 @@ const SideBar = () => {
                 Lecture Suggestions
               </Link>
               <Link
-                to="#"
+                to="/agronomysuggestions"
                 className="flex items-center text-gray-300 hover:text-white transition-colors text-sm p-2 rounded-lg hover:bg-blue-600"
               >
                 <FaSeedling className="mr-3 text-lg text-green-600" />
                 Agronomy Suggestions
               </Link>
               <Link
-                to="#"
+                to="/addnewproduct"
                 className="flex items-center text-gray-300 hover:text-white transition-colors text-sm p-2 rounded-lg hover:bg-blue-600"
               >
                 <FaPlus className="mr-3 text-lg text-purple-500" />

@@ -8,7 +8,7 @@ import NoteFound from '../pages/NoteFound';
 import LectureSuggestions from '../pages/Lecture-Suggestions';
 import OrderManagement from '../pages/OrderManagement';
 import OrderDetails from '../pages/OrderDetails';
-import Suggestions from '../pages/Suggestions'
+import AgronomySuggestions from '../pages/AgronomySuggestions'
 import Addnewproduct from '../pages/Addnewproduct'
 
 const Routing = () => {
@@ -25,7 +25,7 @@ const Routing = () => {
         <Route path="/order-board" element={<OrderManagement />} />
         <Route path="/lecture-suggestions" element={<LectureSuggestions />} />
         <Route path="/order-board/order/:id" element={<OrderDetails />} />
-        <Route path="/suggestions" element={<Suggestions />} />
+        <Route path="/agronomysuggestions" element={<AgronomySuggestions />} />
         <Route path="/addnewproduct" element={<Addnewproduct />} />
         <Route path="*" element={<NoteFound />} />
       </Route>
