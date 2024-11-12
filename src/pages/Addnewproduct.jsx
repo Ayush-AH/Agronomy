@@ -2,6 +2,7 @@ import React from "react";
 
 
 const Addnewproduct = () => {
+  // Add new product
   return (
     <div className="container max-h-screen overflow-y-auto bg-white mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Add New Product</h1>
