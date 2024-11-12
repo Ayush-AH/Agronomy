@@ -1,12 +1,16 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100..900&family=Roboto:wght@100;300;400;500;700;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@100;300;400;500;700;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,12 +25,137 @@ body {
 
 body {
   font-family: 'Roboto', sans-serif;
+  line-height: 1.6; 
+  background-color: #1F2937; 
+  color: #333; 
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 2.25rem; 
+  font-weight: 700; 
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+h3, h4, h5, h6 {
+  font-weight: 500;
 }
 
 .decorative-font {
   font-family: 'Playfair Display', serif;
+}
+
+.cursive {
+  font-family: 'Playwrite GB S', sans-serif;
+}
+
+.exo{
+  font-family: Exo,sans-serif;
+}
+
+/* Tailwind Custom Utilities for Font Families */
+@layer base {
+  .font-body {
+    font-family: 'Roboto', sans-serif;
+  }
+  .font-heading {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .font-decorative {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-cursive {
+    font-family: 'Playwrite GB S', sans-serif;
+  }
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track color */
+  border-radius: 10px; /* Rounded track for a softer look */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3; /* Thumb color */
+  border-radius: 10px; /* Rounded thumb for a professional look */
+  border: 2px solid #f0f0f0; /* Padding around the thumb for better aesthetics */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #888; /* Slightly darker on hover */
+}
+
+/* Optional - styling for Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Reduces scrollbar width */
+  scrollbar-color: #b3b3b3 #f0f0f0; /* Thumb color and track color for Firefox */
+}
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.ghost-container .ghost-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.eye {
+  transition: transform 0.2s ease;
+}
+
+/* .ghost-glow {
+  text-shadow: 0px 0px 10px #9c88ff, 0px 0px 20px #9c88ff;
+} */
+
+.ghost-text {
+  font-family: 'Creepster', cursive; 
+}
+
+.shadow-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hover\:animate-wiggle:hover {
+  animation: wiggle 0.3s ease-in-out;
+}
+
+.anta-regular {
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
