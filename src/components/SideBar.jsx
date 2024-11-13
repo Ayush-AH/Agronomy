@@ -4,7 +4,7 @@ import { FaCaretDown, FaCaretUp, FaRegMoneyBillAlt, FaGraduationCap, FaSeedling,
 
 const SideBar = () => {
   const [isAgronomyOpen, setIsAgronomyOpen] = useState(true);
-  const [isFloorManagerOpen, setIsFloorManagerOpen] = useState(false);
+  const [isFloorManagerOpen, setIsFloorManagerOpen] = useState(true);
 
   const toggleAgronomy = () => setIsAgronomyOpen(!isAgronomyOpen);
   const toggleFloorManager = () => setIsFloorManagerOpen(!isFloorManagerOpen);

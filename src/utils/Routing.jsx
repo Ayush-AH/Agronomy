@@ -10,6 +10,7 @@ import OrderManagement from '../pages/OrderManagement';
 import OrderDetails from '../pages/OrderDetails';
 import AgronomySuggestions from '../pages/AgronomySuggestions'
 import Addnewproduct from '../pages/Addnewproduct'
+import RequestForm from '../pages/RequestForm';
 
 const Routing = () => {
   return (
@@ -23,8 +24,9 @@ const Routing = () => {
       <Route path="/" element={<Home />}>
         <Route index element={<OrderManagement />} />
         <Route path="/order-board" element={<OrderManagement />} />
-        <Route path="/lecture-suggestions" element={<LectureSuggestions />} />
         <Route path="/order-board/order/:id" element={<OrderDetails />} />
+        <Route path="/lecture-suggestions" element={<LectureSuggestions />} />
+        <Route path="/lecture-suggestions/new-request" element={<RequestForm/>} />
         <Route path="/agronomysuggestions" element={<AgronomySuggestions />} />
         <Route path="/addnewproduct" element={<Addnewproduct />} />
         <Route path="*" element={<NoteFound />} />
