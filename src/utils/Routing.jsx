@@ -10,6 +10,7 @@ import OrderManagement from '../pages/OrderManagement';
 import OrderDetails from '../pages/OrderDetails';
 import AgronomySuggestions from '../pages/AgronomySuggestions'
 import Addnewproduct from '../pages/Addnewproduct'
+import AllLeadAssigned from '../pages/AllLeadAssigned';
 
 const Routing = () => {
   return (
@@ -26,6 +27,7 @@ const Routing = () => {
         <Route path="/lecture-suggestions" element={<LectureSuggestions />} />
         <Route path="/order-board/order/:id" element={<OrderDetails />} />
         <Route path="/agronomysuggestions" element={<AgronomySuggestions />} />
+        <Route path="/all-lead-assigned" element={<AllLeadAssigned/>} />
         <Route path="/addnewproduct" element={<Addnewproduct />} />
         <Route path="*" element={<NoteFound />} />
       </Route>

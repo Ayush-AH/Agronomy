@@ -2,7 +2,7 @@ import React from 'react'
 
 const Suggestions = () => {
     return (
-        <div className="container min-h-screen bg-white mx-auto p-6 space-y-6">
+        <div className="container min-h-screen bg-white mx-auto p-6 space-y-6 rounded-xl">
           <h1 className="text-2xl font-semibold text-gray-900 border-b-2 pb-5">Agronomy Suggestions</h1>
           <section>
             <h2 className="text-xl font-medium text-gray-800 mb-4">Saved Suggestions</h2>
