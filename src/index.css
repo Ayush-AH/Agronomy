@@ -138,10 +138,6 @@ h3, h4, h5, h6 {
   transition: transform 0.2s ease;
 }
 
-/* .ghost-glow {
-  text-shadow: 0px 0px 10px #9c88ff, 0px 0px 20px #9c88ff;
-} */
-
 .ghost-text {
   font-family: 'Creepster', cursive; 
 }
@@ -159,3 +155,4 @@ h3, h4, h5, h6 {
   font-weight: 400;
   font-style: normal;
 }
+

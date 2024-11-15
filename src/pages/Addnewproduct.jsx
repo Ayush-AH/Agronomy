@@ -96,7 +96,7 @@ const Addnewproduct = () => {
           </div>
         </div>
 
-        <div className="border p-4 rounded-lg bg-[#F9F9F9]">
+        <div className="border p-4 h-fit rounded-lg bg-[#F9F9F9]">
           <h2 className="text-xl font-semibold mb-4">Upload Images</h2>
           <div className="border-2 border-dashed rounded-lg p-4 bg-gray-300 hover:bg-gray-100 transition-colors">
             <label
