@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import { FaCaretDown, FaCaretUp, FaRegMoneyBillAlt, FaGraduationCap, FaSeedling, FaPlus, FaPhoneAlt, FaChartLine, FaStoreAlt, FaSignOutAlt } from 'react-icons/fa';
 
 const SideBar = () => {
+  const navigation = useNavigate()
   const [isAgronomyOpen, setIsAgronomyOpen] = useState(true);
   const [isFloorManagerOpen, setIsFloorManagerOpen] = useState(true);
 
@@ -11,10 +12,10 @@ const SideBar = () => {
 
   return (
     <div className=" flex-col hidden md:flex w-72 min-h-screen bg-gray-800 text-white p-6">
-      <div className="flex items-center gap-1 mb-8">
-        <span className="text-2xl font-bold text-blue-500">Ag</span>
-        <span className="text-xl opacity-70 text-gray-300 cursive">Ronomy</span>
-      </div>
+      <button onClick={() => navigation('/')} className="flex items-center gap-1 mb-8">
+        <span className="text-2xl font-extrabold font-serif text-white">Ag</span>
+        <span className="text-xl  text-[#A8A8A8] cursive">Ronomy</span>
+      </button>
 
       <div className="flex flex-col items-center mb-8">
         <div className="w-20 h-20 mb-2 rounded-full bg-gray-600 flex items-center justify-center">
@@ -103,7 +104,7 @@ const SideBar = () => {
                 Calls Dashboard
               </Link>
               <Link
-                to="#"
+                to="/topsku"
                 className="flex items-center text-gray-300 hover:text-white transition-colors text-sm p-2 rounded-lg hover:bg-blue-600"
               >
                 <FaChartLine className="mr-3 text-lg text-teal-500" />

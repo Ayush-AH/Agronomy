@@ -12,6 +12,8 @@ import AgronomySuggestions from '../pages/AgronomySuggestions'
 import Addnewproduct from '../pages/Addnewproduct'
 import RequestForm from '../pages/RequestForm';
 import AllLeadAssigned from '../pages/AllLeadAssigned';
+import TopSku from '../pages/TopSku';
+import TopSkillsSku from '../pages/TopSkillsSku';
 
 const Routing = () => {
   return (
@@ -31,6 +33,8 @@ const Routing = () => {
         <Route path="/agronomysuggestions" element={<AgronomySuggestions />} />
         <Route path="/all-lead-assigned" element={<AllLeadAssigned/>} />
         <Route path="/addnewproduct" element={<Addnewproduct />} />
+        <Route path="/topsku" element={<TopSku />} />
+        <Route path="/topskillssku" element={<TopSkillsSku />} />
         <Route path="*" element={<NoteFound />} />
       </Route>
       <Route path="*" element={<NoteFound />} />
