@@ -11,6 +11,7 @@ import OrderDetails from '../pages/OrderDetails';
 import AgronomySuggestions from '../pages/AgronomySuggestions'
 import Addnewproduct from '../pages/Addnewproduct'
 import RequestForm from '../pages/RequestForm';
+import AllLeadAssigned from '../pages/AllLeadAssigned';
 
 const Routing = () => {
   return (
@@ -28,6 +29,7 @@ const Routing = () => {
         <Route path="/lecture-suggestions" element={<LectureSuggestions />} />
         <Route path="/lecture-suggestions/new-request" element={<RequestForm/>} />
         <Route path="/agronomysuggestions" element={<AgronomySuggestions />} />
+        <Route path="/all-lead-assigned" element={<AllLeadAssigned/>} />
         <Route path="/addnewproduct" element={<Addnewproduct />} />
         <Route path="*" element={<NoteFound />} />
       </Route>

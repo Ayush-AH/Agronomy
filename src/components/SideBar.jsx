@@ -89,7 +89,7 @@ const SideBar = () => {
           {isFloorManagerOpen && (
             <div className="flex flex-col gap-2 pl-4">
               <Link
-                to="#"
+                to="/all-lead-assigned"
                 className="flex items-center text-gray-300 hover:text-white transition-colors text-sm p-2 rounded-lg hover:bg-blue-600"
               >
                 <FaStoreAlt className="mr-3 text-lg text-orange-500" />
