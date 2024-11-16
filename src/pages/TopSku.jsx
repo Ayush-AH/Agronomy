@@ -9,16 +9,16 @@ const chartStyle = {
 };
 
 const salesData = [
-  { id: 1, sku: "AAAA-111", quantity: 50 },
-  { id: 2, sku: "AAAA-112", quantity: 94 },
-  { id: 3, sku: "AAAA-113", quantity: 120 },
-  { id: 4, sku: "AAAA-114", quantity: 75 },
-  { id: 5, sku: "AAAA-115", quantity: 85 },
-  { id: 6, sku: "AAAA-116", quantity: 65 },
-  { id: 7, sku: "AAAA-117", quantity: 130 },
-  { id: 8, sku: "AAAA-118", quantity: 110 },
-  { id: 9, sku: "AAAA-119", quantity: 95 },
-  { id: 10, sku: "AAAA-120", quantity: 55 },
+  { id: 1, sku: "AAAA-111", quantity: 97 },
+  { id: 2, sku: "AAAA-112", quantity: 48 },
+  { id: 3, sku: "AAAA-113", quantity: 32 },
+  { id: 4, sku: "AAAA-114", quantity: 26 },
+  { id: 5, sku: "AAAA-115", quantity: 22 },
+  { id: 6, sku: "AAAA-116", quantity: 19 },
+  { id: 7, sku: "AAAA-117", quantity: 18 },
+  { id: 8, sku: "AAAA-118", quantity: 12 },
+  { id: 9, sku: "AAAA-119", quantity: 9 },
+  { id: 10, sku: "AAAA-120", quantity: 4 },
 ];
 
 const TopSku = () => {

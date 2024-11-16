@@ -3,13 +3,16 @@ import { AgCharts } from 'ag-charts-community';
 
 const PieChart = ({ data, style, title, subtitle, footnote }) => {
   useEffect(() => {
+    const topFiveSales = data
+      .sort((a, b) => b.quantity - a.quantity)
+      .slice(0, 5)
     const numFormatter = new Intl.NumberFormat("en-US");
 
-    const totalQuantity = data.reduce((acc, item) => acc + item.quantity, 0);
+    const totalQuantity = topFiveSales.reduce((acc, item) => acc + item.quantity, 0);
 
-    const dataWithPercentage = data.map(item => ({
+    const dataWithPercentage = topFiveSales.map(item => ({
       ...item,
-      percentage: ((item.quantity / totalQuantity) * 100).toFixed(2), 
+      percentage: ((item.quantity / totalQuantity) * 100).toFixed(2),
     }));
 
     const options = {
