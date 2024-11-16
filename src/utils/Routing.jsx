@@ -14,6 +14,7 @@ import RequestForm from '../pages/RequestForm';
 import AllLeadAssigned from '../pages/AllLeadAssigned';
 import TopSku from '../pages/TopSku';
 import TopSkillsSku from '../pages/TopSkillsSku';
+import AllLead from '../pages/AllLead';
 
 const Routing = () => {
   return (
@@ -32,6 +33,7 @@ const Routing = () => {
         <Route path="/lecture-suggestions/new-request" element={<RequestForm/>} />
         <Route path="/agronomysuggestions" element={<AgronomySuggestions />} />
         <Route path="/all-lead-assigned" element={<AllLeadAssigned/>} />
+        <Route path="/all-lead" element={<AllLead/>} />
         <Route path="/addnewproduct" element={<Addnewproduct />} />
         <Route path="/topsku" element={<TopSku />} />
         <Route path="/topskillssku" element={<TopSkillsSku />} />
