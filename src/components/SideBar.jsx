@@ -11,7 +11,7 @@ const SideBar = () => {
   const toggleFloorManager = () => setIsFloorManagerOpen(!isFloorManagerOpen);
 
   return (
-    <div className=" flex-col hidden md:flex w-72 min-h-screen bg-gray-800 text-white p-6">
+    <div className="sticky flex-col hidden md:flex w-72 min-h-screen bg-gray-800 text-white p-6">
       <button onClick={() => navigation('/')} className="flex items-center gap-1 mb-8">
         <span className="text-2xl font-extrabold font-serif text-white">Ag</span>
         <span className="text-xl  text-[#A8A8A8] cursive">Ronomy</span>
@@ -90,7 +90,7 @@ const SideBar = () => {
           {isFloorManagerOpen && (
             <div className="flex flex-col gap-2 pl-4">
               <Link
-                to="/all-lead-assigned"
+                to="/all-lead"
                 className="flex items-center text-gray-300 hover:text-white transition-colors text-sm p-2 rounded-lg hover:bg-blue-600"
               >
                 <FaStoreAlt className="mr-3 text-lg text-orange-500" />

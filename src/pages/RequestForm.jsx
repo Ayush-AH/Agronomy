@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const RequestForm = () => {
   const navigate = useNavigate()
   return (
-    <div className='w-full max-h-screen overflow-y-auto bg-white px-6 py-[25px]'>
+    <div className='w-full max-h-screen overflow-y-auto bg-white px-6 py-[25px] rounded-xl'>
       {/* header */}
       <div className="flex bg-gray-100 items-center justify-between w-full p-3 mb-6">
         <div className="flex items-center space-x-4">

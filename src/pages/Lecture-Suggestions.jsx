@@ -3,8 +3,74 @@ import Table from '../components/Table'
 import { Link } from 'react-router-dom'
 
 const LectureSuggestions = () => {
+
+
+  const tableHeaders = [
+    { label: 'No.', key: 'id' },
+    { label: 'Status', key: 'status' },
+    { label: 'Department', key: 'department' },
+    { label: 'Lecture Name', key: 'lectureName' },
+    { label: 'Apply Date', key: 'applyDate' },
+    { label: 'Approval', key: 'approval' },
+    { label: 'Download', key: 'download' }
+  ];
+
+  const tableData = [
+    {
+      id: 1,
+      status: 'Approval',
+      department: 'Marketing',
+      lectureName: 'Archhhanna',
+      applyDate: '24 Nov 2022, 12:41 AM',
+      approval: 'Approval by founder',
+    },
+    {
+      id: 2,
+      status: 'Approval',
+      department: 'Marketing',
+      lectureName: 'Archhhanna',
+      applyDate: '24 Nov 2022, 12:41 AM',
+      approval: 'Approval by founder',
+    },
+    {
+      id: 3,
+      status: 'Approval',
+      department: 'Marketing',
+      lectureName: 'Archhhanna',
+      applyDate: '24 Nov 2022, 12:41 AM',
+      approval: 'Approval by founder',
+    },
+    {
+      id: 4,
+      status: 'Approval',
+      department: 'Marketing',
+      lectureName: 'Archhhanna',
+      applyDate: '24 Nov 2022, 12:41 AM',
+      approval: 'Approval by founder',
+    },
+    {
+      id: 5,
+      status: 'Approval',
+      department: 'Marketing',
+      lectureName: 'Archhhanna',
+      applyDate: '24 Nov 2022, 12:41 AM',
+      approval: 'Approval by founder',
+    },
+    {
+      id: 6,
+      status: 'Approval',
+      department: 'Marketing',
+      lectureName: 'Archhhanna',
+      applyDate: '24 Nov 2022, 12:41 AM',
+      approval: 'Approval by founder',
+    },
+  ];
+
+
+
+
   return (
-    <div className='w-full max-h-screen overflow-y-auto bg-white px-6 py-[25px]'>
+    <div className='w-full max-h-screen overflow-y-auto bg-white px-6 py-[25px] rounded-xl'>
       {/* header */}
       <div className='w-full'>
         <h1 className="text-2xl font-semibold text-gray-900 border-b-2 pb-5">Available Lecture</h1>
@@ -46,7 +112,7 @@ const LectureSuggestions = () => {
      <hr  className='w-full border-[1px]'/>
       </div>
       {/* table */}
-     <Table/>
+     <Table tableHeaders={tableHeaders} tableData={tableData}/>
     </div>
   )
 }
