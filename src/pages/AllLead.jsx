@@ -6,7 +6,6 @@ const AllLead = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const tableHeaders = [
-    { label: 'No.', key: 'id' },
     { label: 'Owner', key: 'owner' },
     { label: 'Pipeline Stage', key: 'pipelineStage' },
     { label: 'Phone Number', key: 'phoneNumber' },

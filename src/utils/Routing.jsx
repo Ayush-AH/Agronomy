@@ -15,6 +15,7 @@ import AllLeadAssigned from '../pages/AllLeadAssigned';
 import TopSku from '../pages/TopSku';
 import TopSkillsSku from '../pages/TopSkillsSku';
 import AllLead from '../pages/AllLead';
+import CallDashboard from '../pages/CallDashborad';
 
 const Routing = () => {
   return (
@@ -32,9 +33,11 @@ const Routing = () => {
         <Route path="/lecture-suggestions" element={<LectureSuggestions />} />
         <Route path="/lecture-suggestions/new-request" element={<RequestForm/>} />
         <Route path="/agronomysuggestions" element={<AgronomySuggestions />} />
-        <Route path="/all-lead-assigned" element={<AllLeadAssigned/>} />
-        <Route path="/all-lead" element={<AllLead/>} />
         <Route path="/addnewproduct" element={<Addnewproduct />} />
+        {/* FloorManager Dashboard */}
+        <Route path="/all-lead" element={<AllLead/>} />
+        <Route path="/all-lead-assigned" element={<AllLeadAssigned/>} />
+        <Route path="/call-dashboard" element={<CallDashboard/>} />
         <Route path="/topsku" element={<TopSku />} />
         <Route path="/topskillssku" element={<TopSkillsSku />} />
         <Route path="*" element={<NoteFound />} />
