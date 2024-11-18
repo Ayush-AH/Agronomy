@@ -97,7 +97,7 @@ const SideBar = () => {
                 All Leads Assigned
               </Link>
               <Link
-                to="#"
+                to="/call-dashboard"
                 className="flex items-center text-gray-300 hover:text-white transition-colors text-sm p-2 rounded-lg hover:bg-blue-600"
               >
                 <FaPhoneAlt className="mr-3 text-lg text-red-500" />
