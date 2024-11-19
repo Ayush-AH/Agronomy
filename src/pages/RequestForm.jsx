@@ -6,7 +6,7 @@ const RequestForm = () => {
   return (
     <div className='w-full max-h-screen overflow-y-auto bg-white px-6 py-[25px] rounded-xl'>
       {/* header */}
-      <div className="flex bg-gray-100 items-center justify-between w-full p-3 mb-6">
+      <div className="flex bg-gray-100 items-center justify-between w-full rounded p-3 mb-6">
         <div className="flex items-center space-x-4">
           <button
             onClick={() => navigate(-1)}
@@ -19,60 +19,60 @@ const RequestForm = () => {
         </div>
       </div>
       <div className='w-full flex justify-between gap-14'>
-       <div className='w-[68%] flex flex-col items-end'>
-       <div className="w-full  shadow-md rounded-md overflow-hidden">
-          <div className='w-full text-white bg-[#3ABABA] py-3 text-center'>
-            <h2 className='text-lg'>Lexture Request Form</h2>
-          </div>
-          <form>
-            <div className='w-full p-3 pt-4'>
-              <div className='w-full flex justify-between items-end'>
-                <h1 className='text-lg uppercase font-regular text-[#004394]'>information</h1>
-                <h4 className='text-sm'>Date: 01/02/2024</h4>
-              </div>
-              <div className='w-full flex items-center justify-between gap-10 p-4'>
-                <div className='flex flex-col w-1/2'>
-                  <label htmlFor="name" className='text-sm'>Name*</label>
-                  <input type="text" className='w-full p-2 outline-none bg-black/5' />
-                </div> <div className='flex flex-col w-1/2'>
-                  <label htmlFor="name" className='text-sm'>Name*</label>
-                  <input type="text" className='w-full p-2 outline-none bg-black/5' />
-                </div>
-              </div>
-              <div className='w-full flex items-center justify-between gap-10 p-4'>
-                <div className='flex flex-col w-1/2'>
-                  <label htmlFor="name" className='text-sm'>Name*</label>
-                  <input type="text" className='w-full p-2 outline-none bg-black/5' />
-                </div> <div className='flex flex-col w-1/2'>
-                  <label htmlFor="name" className='text-sm'>Name*</label>
-                  <input type="text" className='w-full p-2 outline-none bg-black/5' />
-                </div>
-              </div>
-              <div className='w-full flex justify-between items-end'>
-                <h1 className='text-lg uppercase font-regular text-[#004394]'>Lecture</h1>
-              </div>
-              <div className='w-full flex items-center justify-between gap-10 p-4'>
-                <div className='flex flex-col w-1/2'>
-                  <label htmlFor="name" className='text-sm'>Name*</label>
-                  <input type="text" className='w-full p-2 outline-none bg-black/5' />
-                </div> <div className='flex flex-col w-1/2'>
-                  <label htmlFor="name" className='text-sm'>Name*</label>
-                  <input type="text" className='w-full p-2 outline-none bg-black/5' />
-                </div>
-              </div>
-              <div className='w-full flex items-center justify-between gap-10 p-4'>
-                <div className='flex flex-col w-full'>
-                  <label htmlFor="name" className='text-sm'>Name*</label>
-                  <input type="text" className='w-full p-2 outline-none bg-black/5' />
-                  <textarea className='w-full resize-none h-220 p-2 outline-none bg-black/5'></textarea>
-                </div>
-              </div>
+        <div className='w-[68%] flex flex-col items-end'>
+          <div className="w-full  shadow-md rounded-md overflow-hidden">
+            <div className='w-full text-white bg-[#3ABABA] py-3 text-center'>
+              <h2 className='text-lg'>Lexture Request Form</h2>
             </div>
-          </form>
+            <form>
+              <div className='w-full p-3 pt-4'>
+                <div className='w-full flex justify-between items-end'>
+                  <h1 className='text-lg uppercase font-regular text-[#004394]'>information</h1>
+                  <h4 className='text-sm'>Date: 01/02/2024</h4>
+                </div>
+                <div className='w-full flex items-center justify-between gap-10 p-4'>
+                  <div className='flex flex-col w-1/2'>
+                    <label htmlFor="name" className='text-sm'>Name*</label>
+                    <input type="text" className='w-full p-2 outline-none bg-black/5' />
+                  </div> <div className='flex flex-col w-1/2'>
+                    <label htmlFor="name" className='text-sm'>Name*</label>
+                    <input type="text" className='w-full p-2 outline-none bg-black/5' />
+                  </div>
+                </div>
+                <div className='w-full flex items-center justify-between gap-10 p-4'>
+                  <div className='flex flex-col w-1/2'>
+                    <label htmlFor="name" className='text-sm'>Name*</label>
+                    <input type="text" className='w-full p-2 outline-none bg-black/5' />
+                  </div> <div className='flex flex-col w-1/2'>
+                    <label htmlFor="name" className='text-sm'>Name*</label>
+                    <input type="text" className='w-full p-2 outline-none bg-black/5' />
+                  </div>
+                </div>
+                <div className='w-full flex justify-between items-end'>
+                  <h1 className='text-lg uppercase font-regular text-[#004394]'>Lecture</h1>
+                </div>
+                <div className='w-full flex items-center justify-between gap-10 p-4'>
+                  <div className='flex flex-col w-1/2'>
+                    <label htmlFor="name" className='text-sm'>Name*</label>
+                    <input type="text" className='w-full p-2 outline-none bg-black/5' />
+                  </div> <div className='flex flex-col w-1/2'>
+                    <label htmlFor="name" className='text-sm'>Name*</label>
+                    <input type="text" className='w-full p-2 outline-none bg-black/5' />
+                  </div>
+                </div>
+                <div className='w-full flex items-center justify-between gap-10 p-4'>
+                  <div className='flex flex-col w-full'>
+                    <label htmlFor="name" className='text-sm'>Name*</label>
+                    <input type="text" className='w-full p-2 outline-none bg-black/5' />
+                    <textarea className='w-full resize-none h-220 p-2 outline-none bg-black/5'></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <button onClick={() => navigate(-1)} className='px-10 mt-3 text-white whitespace-nowrap rounded-md py-2 bg-[#3ABABA]'>Submit</button>
         </div>
-        <button className='px-10 mt-3 text-white whitespace-nowrap rounded-md py-2 bg-[#3ABABA]'>Submit</button>
-       </div>
-        
+
         <div className="w-[35%] p-3  rounded-md shadow-md">
           <div className='w-full '>
             <h4 className='uppercase py-2 px-3 border-b font-semibold'>available lecture</h4>

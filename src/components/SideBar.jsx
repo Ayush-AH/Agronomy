@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import { FaCaretDown, FaCaretUp, FaRegMoneyBillAlt, FaGraduationCap, FaSeedling, FaPlus, FaPhoneAlt, FaChartLine, FaStoreAlt, FaSignOutAlt } from 'react-icons/fa';
+import { FaTasks } from "react-icons/fa";
 
 const SideBar = () => {
   const navigation = useNavigate()
@@ -102,6 +103,13 @@ const SideBar = () => {
               >
                 <FaPhoneAlt className="mr-3 text-lg text-red-500" />
                 Calls Dashboard
+              </Link>
+              <Link
+                to="/topskillssku"
+                className="flex items-center text-gray-300 hover:text-white transition-colors text-sm p-2 rounded-lg hover:bg-blue-600"
+              >
+                <FaTasks className="mr-3 text-lg text-sky-400" />
+                My Task
               </Link>
               <Link
                 to="/topsku"
