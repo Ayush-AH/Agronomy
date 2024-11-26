@@ -21,7 +21,7 @@ const Login = () => {
         '/api/auth/login',
         { email, password }, // Payload
         {
-          headers: { 'Content-Type': 'application/json' }, 
+          headers: { 'Content-Type': 'application/json' },
         }
       );
 
@@ -35,7 +35,7 @@ const Login = () => {
       toast.success(message || 'Login successful');
 
       // Redirect to dashboard or home page
-      navigate('/dashboard');
+      navigate('/');
     } catch (err) {
       const errorMessage =
         err.response?.data?.message || 'Invalid credentials or an error occurred';
