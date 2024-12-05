@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../utils/Axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const OtpVerify = () => {
   const navigation = useNavigate();
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  // Retrieve the email from localStorage and parse it correctly
+  const userDetails = JSON.parse(localStorage.getItem("user_details") || "{}");
+  const email = userDetails.email || ""; // If email exists, use it
+
   const handleChange = (value, index) => {
     const newOtp = [...otp];
-    newOtp[index] = value.slice(0, 1); // Restrict to single character
+    newOtp[index] = value.slice(0, 1); // Allow only one digit
     setOtp(newOtp);
 
-    // Automatically focus the next input field
+    // Move to the next input if a digit is entered
     if (value && index < otp.length - 1) {
       const nextInput = document.getElementById(`otp-input-${index + 1}`);
       if (nextInput) nextInput.focus();
@@ -24,6 +27,7 @@ export const OtpVerify = () => {
   };
 
   const handleKeyDown = (e, index) => {
+    // Move to the previous input if backspace is pressed
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       const prevInput = document.getElementById(`otp-input-${index - 1}`);
       if (prevInput) prevInput.focus();
@@ -31,12 +35,7 @@ export const OtpVerify = () => {
   };
 
   const handleSubmit = async () => {
-    const enteredOtp = otp.join(""); // Combine the OTP digits into a single string
-
-    if (!email) {
-      setError("Please enter your email address.");
-      return;
-    }
+    const enteredOtp = otp.join("");
 
     if (enteredOtp.length < 6) {
       setError("Please enter all 6 digits.");
@@ -48,22 +47,48 @@ export const OtpVerify = () => {
     setSuccess("");
 
     try {
-      const response = await axios.post("http://localhost:3001/api/auth/verify-otp", {
+      // Send email and OTP for verification
+      const response = await axios.post("/api/auth/verify-otp", {
         email: email.trim(),
         otp: enteredOtp.trim(),
       });
+
       setSuccess(response.data.message || "OTP Verified Successfully!");
-      toast.success(response.data.message || "OTP Verified Successfully!")
-      navigation("/login");
+      toast.success(response.data.message || "OTP Verified Successfully!");
+      navigation("/auth");
     } catch (err) {
       setError(err.response?.data?.message || "Failed to verify OTP.");
+      toast.error(err.response?.data?.message || "Failed to verify OTP.");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleResendOtp = () => {
-    alert("OTP Resent!"); // Placeholder for resend OTP functionality
+  const handleResendOtp = async () => {
+    // Ensure email is available before resending OTP
+    if (!email) {
+      setError("Email is not available. Please try again.");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      // Resend OTP request
+      const response = await axios.post("/api/auth/resend-otp", {
+        email: email.trim(),
+      });
+
+      setSuccess(response.data.message || "OTP resent successfully!");
+      toast.success(response.data.message || "OTP resent successfully!");
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to resend OTP.");
+      toast.error(err.response?.data?.message || "Failed to resend OTP.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -71,17 +96,8 @@ export const OtpVerify = () => {
       <div className="bg-white p-8 rounded shadow-lg w-96">
         <h2 className="text-2xl font-semibold text-center mb-6">Verify OTP</h2>
         <p className="text-gray-600 text-center mb-6">
-          Enter your registered email and the 6-digit OTP sent to it.
+          Enter the 6-digit OTP sent to your email: <strong>{email}</strong>
         </p>
-        <div className="mb-4">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          />
-        </div>
         <div className="flex justify-between mb-6">
           {otp.map((digit, index) => (
             <input
@@ -98,8 +114,9 @@ export const OtpVerify = () => {
         </div>
         <button
           onClick={handleSubmit}
-          className={`w-full py-2 px-4 rounded ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
-            } text-white transition`}
+          className={`w-full py-2 px-4 rounded ${
+            loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"
+          } text-white transition`}
           disabled={loading}
         >
           {loading ? "Verifying..." : "Verify OTP"}
@@ -110,11 +127,12 @@ export const OtpVerify = () => {
           <button
             onClick={handleResendOtp}
             className="text-blue-500 hover:underline"
+            disabled={loading}
           >
-            Resend OTP
+            {loading ? "Resending..." : "Resend OTP"}
           </button>
           <span className="mx-2">|</span>
-          <a href="/login" className="text-blue-500 hover:underline">
+          <a href="/auth" className="text-blue-500 hover:underline">
             Back to Login
           </a>
         </div>
