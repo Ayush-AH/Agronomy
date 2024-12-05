@@ -23,7 +23,7 @@ const Routing = () => {
   return (
     <Routes>
       {/* Define the main routes */}
-      <Route path="/login" element={<Login />} />
+      {/* <Route path="/login" element={<Login />} /> */}
       <Route path="/auth" element={<AuthForm />} />
       <Route path="/otp-verify" element={<OtpVerify />} />
       <Route path="/forget" element={<Forget />} />
@@ -43,6 +43,7 @@ const Routing = () => {
         <Route path="/call-dashboard" element={<CallDashboard />} />
         <Route path="/topsku" element={<TopSku />} />
         <Route path="/topskillssku" element={<TopSkillsSku />} />
+        <Route path="/calls-dashboard" element={<CallDashboard />} />
         <Route path="*" element={<NoteFound />} />
       </Route>
       <Route path="*" element={<NoteFound />} />

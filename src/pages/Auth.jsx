@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import axios from '../utils/Axios';
 
 const AuthForm = () => {
   const navigation = useNavigate();
+  const [isVerified, setIsVerified] = useState(true);
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [formData, setFormData] = useState({
     username: '',
@@ -23,42 +25,55 @@ const AuthForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = isLoginForm
-      ? 'http://localhost:3001/api/auth/login'
-      : 'http://localhost:3001/api/auth/register';
+    const url = isLoginForm ? '/api/auth/login' : '/api/auth/register';
 
     try {
-      const response = await fetch(url, {
-        method: 'POST',
+      const response = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
       });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Success:', data);
-        toast(isLoginForm ? 'Login Successful!' : 'Registration Successful!');
-        if (isLoginForm) {
-          navigation('/');
-        } else {
-          navigation('/otp-verify');
-        }
+      // Assuming your API sends a successful status code and relevant data in `response.data`
+      if (response.status === 200) {
+        console.log('Success:', response.data);
+        toast.success(isLoginForm ? 'Login Successful!' : 'Registration Successful!');
+        navigation('/');
+      } else if (response.status === 400) {
+        toast.error("Hello " + response.data.message || 'Invalid credentials. Please try again.');
+        setIsVerified(false);
+      } else if (response.status === 201) {
+        const filteredData = {
+          username: formData.username,
+          email: formData.email,
+        };
+        localStorage.setItem('user_details', JSON.stringify(filteredData));
+        toast.success(response.data.message || 'Registration Successful!');
+        navigation('/otp-verify');
       } else {
-        console.error('Error:', data);
-        alert(data.message || 'An error occurred. Please try again.');
+        console.error('Unexpected response:', response);
+        toast.error("Backend error: " + (response.data.message || 'An error occurred. Please try again.'));
       }
     } catch (error) {
-      console.error('Network error:', error);
-      alert('Network error. Please check your connection.');
+      if(error.response.status === 400) {
+        navigation('/otp-verify');
+        toast.error(error.response.data.message || 'An error occurred. Please try again.');
+      }
+      else if (error.response) {
+        console.error('Server Error:', error.response.data);
+        toast.error(error.response.data.message || 'An error occurred. Please try again.');
+      } else if (error.request) {
+        console.error('Network Error:', error.request);
+        toast.error('Network error. Please check your connection.');
+      } else {
+        console.error('Error:', error.message);
+        toast.error('An unexpected error occurred.');
+      }
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-200">
-      <div className="flex w-full h-[80vh] max-w-5xl bg-[#029345]  shadow-lg rounded-xl overflow-hidden">
+      <div className="flex w-full h-[80vh] max-w-5xl bg-[#029345] shadow-lg rounded-xl overflow-hidden">
         {/* Left Side - Image Section */}
         <div className="w-1/2 relative">
           <div className="absolute top-6 left-6">
@@ -77,7 +92,7 @@ const AuthForm = () => {
         </div>
 
         {/* Right Side - Auth Form */}
-        <div className="w-1/2 relative bg-white rounded-tl-3xl p-12">
+        <div className="w-1/2 relative border-l-4 border-yellow-300 shadow-md bg-white rounded-tl-3xl p-12">
           {/* Toggle Switch */}
           <div className="flex mb-8 bg-gray-100 rounded-full overflow-hidden">
             <button
@@ -141,6 +156,7 @@ const AuthForm = () => {
                   name="termsAccepted"
                   checked={formData.termsAccepted}
                   onChange={handleInputChange}
+                  required
                   className="mr-3 text-green-500 focus:ring-green-500"
                   id="terms"
                 />
@@ -152,8 +168,11 @@ const AuthForm = () => {
 
             {/* Forgot Password Link for Login */}
             {isLoginForm && (
-              <a href="#" className="text-sm text-green-600 hover:underline block text-right">
-                Forgot Password?
+              <a
+                href={isVerified ? '/forgot-password' : '/verify-email'}
+                className="text-sm text-green-600 hover:underline block text-right"
+              >
+                {isVerified ? 'Forgot Password?' : 'Verify Email'}
               </a>
             )}
 
@@ -182,12 +201,12 @@ const AuthForm = () => {
           </form>
 
           {/* Half-Circle at Bottom */}
-          <div className="absolute w-full -bottom-8 left-0 right-0 mx-auto h-32 bg-green-600 rounded-t-full shadow-lg flex flex-col items-center justify-center">
+          <div className="absolute w-full border-t-4 border-yellow-500 -bottom-8 left-0 right-0 mx-auto h-32 bg-green-600 rounded-t-full shadow-lg flex flex-col items-center justify-center">
             <h3 className="text-xl font-bold text-center text-white mb-1">
-              Welcome to Agronomy Portal
+              Welcome to Agronomy
             </h3>
             <div className="flex items-center space-x-2">
-              <span className="text-yellow-300 text-xs ">Powered By</span>
+              <span className="text-yellow-300 text-xs">Powered By</span>
               <span className="text-xs py-1 rounded-md font-bold">Katyayani Organics</span>
             </div>
           </div>
